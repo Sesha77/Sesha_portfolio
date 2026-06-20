@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Seshathri Balan | AI & ML Portfolio</title>
+
+<style>
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Background */
+body{
+    background: linear-gradient(135deg,#050816,#0b1120,#1a103d);
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* Navigation */
+
+nav{
+    position: fixed;
+    width: 100%;
+    padding: 20px 10%;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    z-index:1000;
+}
+
+
+.logo{
+    font-size: 28px;
+    color:#00eaff;
+}
+
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+
+nav ul a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+
+nav ul a:hover{
+    color:#00eaff;
+}
+
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    padding:120px 10%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+}
+
+
+.hero-text h1{
+    font-size:60px;
+}
+
+
+.hero-text h2{
+    color:#00eaff;
+    margin:10px 0;
+}
+
+
+.hero-text p{
+    margin:20px 0;
+    max-width:500px;
+}
+
+
+/* Buttons */
+
+.buttons{
+    margin:30px 0;
+}
+
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    border-radius:30px;
+    background:#00eaff;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    margin-right:10px;
+    transition:0.4s;
+}
+
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 25px #00eaff;
+}
+
+
+.btn-secondary{
+    background:transparent;
+    color:white;
+    border:2px solid #00eaff;
+}
+
+
+/* Social Icons */
+
+.social-icons a{
+    color:white;
+    margin-right:15px;
+    font-size:25px;
+    transition:0.3s;
+}
+
+
+.social-icons a:hover{
+    color:#00eaff;
+}
+
+
+/* 3D Glass Card */
+
+.hero-card{
+    perspective:1000px;
+}
+
+
+.glass-card{
+    width:300px;
+    height:300px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    text-align:center;
+    padding:40px;
+    box-shadow:
+    0 0 30px #00eaff;
+    animation:float 4s ease-in-out infinite;
+}
+
+
+.circle{
+    width:100px;
+    height:100px;
+    background:#00eaff;
+    border-radius:50%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:50px;
+    color:#000;
+}
+
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+
+/* Sections */
+
+section{
+    padding:100px 10%;
+}
+
+
+.heading{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+    color:#00eaff;
+}
+
+
+/* About */
+
+.about-card,
+.skill-card,
+.timeline-card,
+.project-card,
+.contact-card{
+    background:rgba(255,255,255,0.08);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+    box-shadow:0 0 20px rgba(0,234,255,.3);
+    transition:.4s;
+}
+
+
+.about-card:hover,
+.skill-card:hover,
+.timeline-card:hover,
+.project-card:hover,
+.contact-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px #00eaff;
+}
+
+
+/* Details */
+
+.details,
+.skill-container,
+.timeline,
+.project-container{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+
+/* Skill */
+
+.skill-card{
+    text-align:center;
+}
+
+
+.skill-card i{
+    font-size:45px;
+    color:#00eaff;
+    margin-bottom:15px;
+}
+
+
+/* Projects */
+
+.project-icon{
+    font-size:40px;
+    color:#00eaff;
+    margin-bottom:15px;
+}
+
+
+/* Contact */
+
+.contact-card{
+    text-align:center;
+}
+
+
+.contact-buttons{
+    margin-top:25px;
+}
+
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:rgba(255,255,255,0.05);
+}
+
+
+/* Floating Particles */
+
+.particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(#00eaff 1px, transparent 1px);
+    background-size:40px 40px;
+    opacity:0.2;
+    z-index:-1;
+}
+
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+
+nav ul{
+    gap:15px;
+}
+
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+
+.hero-text h1{
+    font-size:40px;
+}
+
+
+.glass-card{
+    width:250px;
+    height:250px;
+}
+
+}
+
+</style>
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Background Animation -->
+<div class="particles"></div>
+
+
+<!-- Navigation -->
+<nav>
+
+<h1 class="logo">
+<i class="fa-solid fa-brain"></i> Seshathri
+</h1>
+
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#resume">Resume</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+
+<!-- Hero Section -->
+
+<section id="home" class="hero">
+
+<div class="hero-text">
+
+<h3>Hello, I'm</h3>
+
+<h1>
+Seshathri Balan G
+</h1>
+
+
+<h2>
+AI & ML Engineer
+</h2>
+
+
+<p>
+Building intelligent systems using Artificial Intelligence,
+Machine Learning and Data Science.
+</p>
+
+
+<div class="buttons">
+
+<a href="#contact" class="btn">
+    Hire Me
+</a>
+
+<a href="Sesha_Resume.pdf" 
+download 
+class="btn btn-secondary">
+    Download Resume
+</a>
+
+</div>
+
+
+<div class="social-icons">
+
+<a href="https://github.com/" target="_blank">
+<i class="fa-brands fa-github"></i>
+</a>
+
+<a href="https://linkedin.com/in/seshathri-balan-g-236bb0257" target="_blank">
+<i class="fa-brands fa-linkedin"></i>
+</a>
+
+<a href="mailto:seshathribalan777@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+</a>
+
+</div>
+
+</div>
+
+
+<!-- 3D Profile Card -->
+
+<div class="hero-card">
+
+<div class="glass-card">
+
+<div class="circle">
+<i class="fa-solid fa-brain"></i>
+</div>
+
+<h2>
+AI & ML
+</h2>
+
+<p>
+Python | Machine Learning | Data Science
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- About Section -->
+
+<section id="about">
+
+<h2 class="heading">
+About Me
+</h2>
+
+
+<div class="about-card">
+
+<p>
+
+B.E Computer Science Engineering (AI & ML)
+graduate from AMET University with a passion
+for Artificial Intelligence, Machine Learning,
+Data Analytics and Software Development.
+
+</p>
+
+
+<div class="details">
+
+<div>
+<h3>🎓 Education</h3>
+
+<p>
+AMET University<br>
+CGPA: 7.8 / 10
+</p>
+
+</div>
+
+
+<div>
+
+<h3>📍 Location</h3>
+
+<p>
+Arcot, Tamil Nadu, India
+</p>
+
+</div>
+
+
+<div>
+
+<h3>🌐 Languages</h3>
+
+<p>
+Tamil, English
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Skills Section -->
+
+<section id="skills">
+
+<h2 class="heading">
+Skills
+</h2>
+
+
+<div class="skill-container">
+
+
+<div class="skill-card">
+
+<i class="fa-solid fa-code"></i>
+
+<h3>
+Programming
+</h3>
+
+<p>
+Python<br>
+R<br>
+HTML
+</p>
+
+</div>
+
+
+<div class="skill-card">
+
+<i class="fa-solid fa-robot"></i>
+
+<h3>
+AI & ML
+</h3>
+
+<p>
+Regression<br>
+Classification<br>
+CNN<br>
+NLP
+</p>
+
+</div>
+
+
+<div class="skill-card">
+
+<i class="fa-solid fa-database"></i>
+
+<h3>
+Tools
+</h3>
+
+<p>
+NumPy<br>
+Pandas<br>
+Scikit-learn<br>
+TensorFlow
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+<!-- Experience Section -->
+
+<section id="experience">
+
+<h2 class="heading">
+Experience
+</h2>
+
+<div class="timeline">
+
+
+<div class="timeline-card">
+
+<h3>
+AI/ML Intern
+</h3>
+
+<h4>
+Pondicherry University | Feb 2025 - Mar 2025
+</h4>
+
+<p>
+Built a real-time Face Detection System using
+Python and OpenCV. Improved detection accuracy
+under different lighting conditions and optimized
+webcam performance.
+</p>
+
+</div>
+
+
+<div class="timeline-card">
+
+<h3>
+Data Science Intern
+</h3>
+
+<h4>
+Network Geek | Jun 2025 - Jul 2025
+</h4>
+
+<p>
+Worked on data preprocessing, analysis and
+visualization using Python. Assisted in developing
+machine learning models and understanding
+data science workflows.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- Projects Section -->
+
+<section id="projects">
+
+<h2 class="heading">
+Projects
+</h2>
+
+
+<div class="project-container">
+
+
+<div class="project-card">
+
+<i class="fa-solid fa-music project-icon"></i>
+
+<h3>
+Hybrid Music Recommendation System
+</h3>
+
+<p>
+Emotion-based music recommendation with
+face recognition and hand gesture controls.
+
+Technologies:
+OpenCV, MediaPipe, TensorFlow, Python.
+</p>
+
+</div>
+
+
+
+<div class="project-card">
+
+<i class="fa-solid fa-camera project-icon"></i>
+
+<h3>
+Face Detection in Images
+</h3>
+
+<p>
+Developed face detection using Haar Cascade
+and DNN-based OpenCV models with image
+preprocessing techniques.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- Resume Section -->
+
+<section id="resume">
+
+<h2 class="heading">
+Resume
+</h2>
+
+<div class="contact-card">
+
+<i class="fa-solid fa-file-pdf project-icon"></i>
+
+<h3>
+Seshathri Balan G — AI & ML Engineer
+</h3>
+
+<p>
+Download my complete resume to see my education,
+internships, projects, certifications and achievements
+in detail.
+</p>
+
+<div class="contact-buttons">
+
+<a href="Sesha_Resume.pdf" download class="btn">
+Download Resume
+</a>
+
+<a href="Sesha_Resume.pdf" target="_blank" class="btn btn-secondary">
+View Resume
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- Contact Section -->
+
+<section id="contact">
+
+<h2 class="heading">
+Contact Me
+</h2>
+
+
+<div class="contact-card">
+
+<h3>
+Let's Build AI Solutions Together
+</h3>
+
+
+<p>
+📧 Email:
+seshathribalan777@gmail.com
+</p>
+
+
+<p>
+📞 Phone:
++91 9944561920
+</p>
+
+
+<p>
+📍 Location:
+Arcot, Tamil Nadu, India
+</p>
+
+
+<div class="contact-buttons">
+
+<a href="mailto:seshathribalan777@gmail.com" class="btn">
+Email Me
+</a>
+
+<a href="https://linkedin.com/in/seshathri-balan-g-236bb0257" target="_blank" class="btn btn-secondary">
+LinkedIn
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+© 2026 Seshathri Balan G |
+AI & ML Portfolio
+</p>
+
+</footer>
+
+
+
+<!-- JavaScript -->
+<script>
+// ==========================
+// Smooth Scroll Animation
+// ==========================
+
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const section = document.querySelector(
+            this.getAttribute('href')
+        );
+
+        section.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+
+// ==========================
+// 3D Card Mouse Effect
+// ==========================
+
+const card = document.querySelector('.glass-card');
+
+document.addEventListener('mousemove', (e) => {
+
+    let x = (window.innerWidth / 2 - e.pageX) / 25;
+    let y = (window.innerHeight / 2 - e.pageY) / 25;
+
+    card.style.transform =
+        `rotateY(${x}deg) rotateX(${-y}deg)`;
+
+});
+
+
+// Reset Card Position
+
+document.addEventListener('mouseleave', () => {
+
+    card.style.transform =
+        "rotateY(0deg) rotateX(0deg)";
+
+});
+
+
+
+// ==========================
+// Scroll Reveal Animation
+// ==========================
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+
+                entry.target.style.transform =
+                    "translateY(0)";
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.2
+    }
+);
+
+
+// Select all cards
+
+const elements = document.querySelectorAll(
+    '.about-card, .skill-card, .timeline-card, .project-card, .contact-card'
+);
+
+
+// Apply hidden style initially
+
+elements.forEach(el => {
+
+    el.style.opacity = "0";
+
+    el.style.transform = "translateY(80px)";
+
+    el.style.transition =
+        "all 0.8s ease";
+
+    observer.observe(el);
+
+});
+
+
+
+
+// ==========================
+// Floating Background Effect
+// ==========================
+
+const particles =
+document.querySelector('.particles');
+
+
+let position = 0;
+
+
+setInterval(() => {
+
+    position += 1;
+
+    particles.style.backgroundPosition =
+        `${position}px ${position}px`;
+
+}, 40);
+
+
+
+
+// ==========================
+// Neon Glow Effect
+// ==========================
+
+const buttons = document.querySelectorAll('.btn');
+
+buttons.forEach(button => {
+
+    button.addEventListener('mouseover', () => {
+
+        button.style.boxShadow =
+        "0 0 35px #00eaff";
+
+    });
+
+
+    button.addEventListener('mouseout', () => {
+
+        button.style.boxShadow =
+        "0 0 0px transparent";
+
+    });
+
+});
+
+
+
+
+// ==========================
+// Dynamic Title Effect
+// ==========================
+
+const titles = [
+    "AI & ML Engineer",
+    "Data Scientist",
+    "Python Developer",
+    "Machine Learning Enthusiast"
+];
+
+
+let index = 0;
+
+
+setInterval(() => {
+
+    const title =
+    document.querySelector(".hero-text h2");
+
+    title.style.opacity = 0;
+
+
+    setTimeout(() => {
+
+        index = (index + 1) % titles.length;
+
+        title.innerHTML = titles[index];
+
+        title.style.opacity = 1;
+
+    }, 400);
+
+
+}, 2500);
+
+</script>
+
+
+</body>
+
+</html>
